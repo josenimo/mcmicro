@@ -35,12 +35,20 @@ modules:
     input: --imagePath
   background:
     -
-      name: ghcr.io/schapirolabor/background_subtraction
+      name: backsub
+      container: ghcr.io/schapirolabor/background_subtraction
       version: v0.4.1
       cmd: |-
         python3 /background_subtraction/background_sub.py \
           -r ${image} -m ${marker} \
           -o ${image_id}_backsub.ome.tif -mo markers_bs.csv
+    -
+      name: imagej-rolling-ball
+      container: yuanchen12/imagej-rolling-ball
+      version: v2023.9.1
+      cmd: |-
+        cp ${marker} markers_bs.csv && \
+          rolling-ball --imagej_version="/home/mambauser/Fiji.app" ${image}
   segmentation:
     -
       name: unmicst
