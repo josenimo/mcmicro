@@ -34,8 +34,8 @@ modules:
     cmd: python /app/UNetCoreograph.py --outputPath .
     input: --imagePath
   background:
-      name: backsub
-      container: ghcr.io/schapirolabor/background_subtraction
+    -
+      name: ghcr.io/schapirolabor/background_subtraction
       version: 0.4.1
       cmd: |-
         python3 /background_subtraction/background_sub.py \
