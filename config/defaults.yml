@@ -29,8 +29,8 @@ modules:
     version: 1.4.0
   registration:
     name: ashlar
-    container: labsyspharm/ashlar
-    version: 1.19.0
+    container: josenimo/jose_ashlar
+    version: 1.21.0
   dearray:
     name: coreograph
     container: labsyspharm/unetcoreograph
